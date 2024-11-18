@@ -1,44 +1,6 @@
 ## dfDewey Helm Chart
-
 ## This Helm chart is for deploying dfDewey alongside Turbinia to a Kubernetes environment
 ##
-## @section Global parameters
-## Please note that this will override the parameters configured to use the global value
-##
-global:
-  ## Global Persistence Configuration
-  ##
-  timesketch:
-    ## @param global.timesketch.enabled Enables the Timesketch deployment (only used in the main OSDFIR Infrastructure Helm chart)
-    ##
-    enabled: false
-    ## @param global.timesketch.servicePort Timesketch service port (overrides `timesketch.service.port`)
-    ##
-    servicePort:
-  turbinia:
-    ## @param global.turbinia.enabled Enables the Turbinia deployment (only used within the main OSDFIR Infrastructure Helm chart)
-    ##
-    enabled: false
-    ## @param global.turbinia.servicePort Turbinia API service port (overrides `turbinia.service.port`)
-    ##
-    servicePort:
-  dfdewey:
-    ## @param global.dfdewey.enabled Enables the dfDewey datastore deployment (only used within the main OSDFIR Infrastructure and the Turbinia Helm charts)
-    ##
-    enabled: false
-  yeti:
-    ## @param global.yeti.enabled Enables the Yeti deployment (only used in the main OSDFIR Infrastructure Helm chart)
-    ##
-    enabled: false
-    ## @param global.yeti.servicePort Yeti API service port (overrides `yeti.api.service.port`)
-    ##
-    servicePort:
-  ## @param global.existingPVC Existing claim for Turbinia persistent volume (overrides `persistent.name`)
-  ##
-  existingPVC: ""
-  ## @param global.storageClass StorageClass for the Turbinia persistent volume (overrides `persistent.storageClass`)
-  ##
-  storageClass: ""
 ## @section Third Party Configuration
 ## This section contains all the main configuration for third party dependencies
 ## dfDewey requires to run
@@ -73,7 +35,7 @@ postgresql:
     persistence:
       ## @param postgresql.primary.persistence.size PostgreSQL Persistent Volume size
       ##
-      size: 8Gi
+      size: 500Gi
     ## PostgreSQL Primary resource requests and limits
     ## @param postgresql.primary.resources.requests.cpu Requested cpu for the PostgreSQL Primary containers
     ## @param postgresql.primary.resources.requests.memory Requested memory for the PostgreSQL Primary containers
@@ -108,7 +70,7 @@ opensearch:
   ## @param opensearch.opensearchJavaOpts Sets the size of the Opensearch Java heap
   ## It is recommended to use at least half the system's available ram
   ##
-  opensearchJavaOpts: "-Xms512m -Xmx512m"
+  opensearchJavaOpts: "-Xms32g -Xmx32g"
   ## @param opensearch.config.opensearch.yml Opensearch configuration file. Can be appended for additional configuration options
   ## Values must be YAML literal style scalar / YAML multiline string
   ## <filename>: |
@@ -146,12 +108,12 @@ opensearch:
   persistence:
     ## @param opensearch.persistence.size Opensearch Persistent Volume size
     ##
-    size: 2Gi
+    size: 6Ti
   ## Opensearch resource requests
   ## @param opensearch.resources.requests.cpu Requested cpu for the Opensearch containers
   ## @param opensearch.resources.requests.memory Requested memory for the Opensearch containers
   ##
   resources:
     requests:
-      cpu: 250m
-      memory: 512Mi
+      cpu: 8000m
+      memory: 32Gi

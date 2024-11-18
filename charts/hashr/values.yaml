@@ -1,4 +1,5 @@
 ## HashR Helm Chart
+
 ## Please use this Helm chart for deploying HashR to a Kubernetes environment
 ##
 ## @section Global parameters
