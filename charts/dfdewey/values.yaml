@@ -1,4 +1,5 @@
 ## dfDewey Helm Chart
+
 ## This Helm chart is for deploying dfDewey alongside Turbinia to a Kubernetes environment
 ##
 ## @section Global parameters
