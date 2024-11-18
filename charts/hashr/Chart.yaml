@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v3
 name: hashr
 description: A Helm chart for HashR Kubernetes deployments.
 version: 0.1.0
