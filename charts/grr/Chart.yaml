@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 name: grr
 version: 1.0.3
 description: A Helm chart for GRR/Fleetspeak Kubernetes deployments.
